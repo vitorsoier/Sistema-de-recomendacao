@@ -51,7 +51,8 @@ def transform(raw_data, tipo):
                     'titulo': info['title'],
                     'resumo': info['overview'],
                     'lancamento': info['release_date'],
-                    'idioma_original': info['original_language']
+                    'idioma_original': info['original_language'],
+                    'poster': info['poster_path']
                 }
             )
         df = pd.DataFrame(filmes)
@@ -59,8 +60,6 @@ def transform(raw_data, tipo):
         # validation
         if not df["id"].is_unique:
             raise Exception("Valor de id não é unico")
-        if df.isnull().values.any():
-            raise Exception("Valor nulo")
     
     if tipo == 'genero':
         data = raw_data.json()['genres']
