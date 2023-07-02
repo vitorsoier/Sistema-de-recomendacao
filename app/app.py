@@ -5,7 +5,7 @@ import requests
 import streamlit as st
 import streamlit.components.v1 as components
 
-st.set_page_config(layout="wide")
+st.set_page_config(layout="wide", page_icon="🎥", page_title="Sistema de recomedação")
 
 with open('app/df_filmes_process.pkl', 'rb') as arquivo:
     movies = pickle.load(arquivo)
@@ -31,9 +31,6 @@ def recomendation_system(movie):
         recommend_movies.append(movies.iloc[movie_id[0]].titulo)
         recommend_poster.append(get_poster(id))
     return recommend_movies, recommend_poster
-
-
-st.set_page_config(page_icon="🎥", page_title="Sistema de recomedação")
 
 movies_ordenados = movies.sort_values(by='titulo')
 
