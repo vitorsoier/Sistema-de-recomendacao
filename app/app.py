@@ -32,6 +32,7 @@ def recomendation_system(movie):
     return recommend_movies, recommend_poster
 
 st.set_page_config(page_icon="🎥", page_title="Sistema de recomedação")
+st.set_page_config(layout="wide")
 
 movies_ordenados = movies.sort_values(by='titulo')
 
